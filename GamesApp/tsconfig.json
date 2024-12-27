@@ -5,6 +5,8 @@
     "jsx": "react-native",
     "allowJs": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["./*"]
     }
@@ -13,6 +15,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+    "expo-env.d.ts",
+    "images.d.ts" // Incluimos el archivo de declaración global
+  ],
+  "exclude": ["node_modules"]
 }

@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 // Define el tipo para los props (si los hubiera)
 type TruthOrDareOptionsScreenProps = {
-    navigation: any;
-    route: {
-      params: {
-        players: string[];
-      };
+  navigation: any;
+  route: {
+    params: {
+      players: string[];
     };
   };
-  
+};
 
 const TruthOrDareOptions: React.FC<TruthOrDareOptionsScreenProps> = ({ navigation, route }) => {
   const { players } = route.params; // Recibimos los jugadores desde la pantalla anterior
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null); // Estado para la categoría seleccionada
 
   const handleModeSelection = (mode: string) => {
-    // Aquí podemos hacer algo con la selección, como cambiar la dificultad o reglas
-    navigation.navigate('Game', { players, mode });
+    setSelectedCategory(mode); // Guardamos la categoría seleccionada en el estado
+    // Navegamos al juego pasando la categoría seleccionada
+    navigation.navigate('TruthOrDareGame', { players, category: mode });
   };
 
   return (
@@ -26,23 +27,23 @@ const TruthOrDareOptions: React.FC<TruthOrDareOptionsScreenProps> = ({ navigatio
 
       <Button
         title="Modo Normal"
-        onPress={() => handleModeSelection('Normal')}
+        onPress={() => handleModeSelection('normal')}
       />
       <Button
         title="Modo Fiesta"
-        onPress={() => handleModeSelection('Fiesta')}
+        onPress={() => handleModeSelection('fiesta')}
       />
       <Button
         title="Modo Picante"
-        onPress={() => handleModeSelection('Picante')}
+        onPress={() => handleModeSelection('picante')}
       />
       <Button
         title="Modo Extremo"
-        onPress={() => handleModeSelection('Extremo')}
+        onPress={() => handleModeSelection('extremo')}
       />
       <Button
         title="Modo Todos"
-        onPress={() => handleModeSelection('Todos')}
+        onPress={() => handleModeSelection('todos')}
       />
     </View>
   );

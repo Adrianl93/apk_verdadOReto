@@ -6,6 +6,8 @@ import TruthOrDareSetup from './screens/truthOrDare/TruthOrDareSetup';
 import TruthOrDareOptions from './screens/truthOrDare/TruthOrDareOptions';
 import TruthOrDareGame from './screens/truthOrDare/TruthOrDareGame';
 
+
+
 const Stack = createStackNavigator();
 
 export default function App() {

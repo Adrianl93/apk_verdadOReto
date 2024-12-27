@@ -13,11 +13,13 @@ const TruthOrDareSetup: React.FC<TruthOrDareSetupProps> = ({ navigation }) => {
 
   const handleStartGame = () => {
     if (playerNames.length === numPlayers) {
-      navigation.navigate('GameOptions', { players: playerNames });
+      // Cambiar 'GameOptions' por 'TruthOrDareOptions'
+      navigation.navigate('TruthOrDareOptions', { players: playerNames });
     } else {
       alert(`Faltan ${numPlayers - playerNames.length} jugadores`);
     }
   };
+  
   
 
   return (
